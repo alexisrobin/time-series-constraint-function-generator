@@ -41,6 +41,4 @@ class SeedTransducer:
             print("(" + state.name + ") => ")
             for input in state.transitions:
                 print(input + ":" + state.transitions[input])
-    
-    def run(self, signature_sequence):
-        print("run")
+

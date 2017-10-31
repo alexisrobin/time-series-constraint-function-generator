@@ -1,1 +1,1 @@
-__all__ = ['State','Automata','SeedTransducer']
+__all__ = ['State','Automata','SeedTransducer','CodeGenerator']
