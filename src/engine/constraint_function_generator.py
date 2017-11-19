@@ -15,6 +15,7 @@ def gen(path):
     for st in seed_transducers:
         c.writeln("def " + st.pattern + "(signature_sequence):")
         c.indent()
+        c.writeln("n = len(signature_sequence)") # Needed for features attribute code generator
         c.writeln("t_occurences = list()")
         c.writeln("for symbol in signature_sequence:")
         c.indent()
