@@ -1,5 +1,9 @@
-def increasing(signature_sequence):
+def min_width_increasing(signature_sequence):
+    n = len(signature_sequence)
     t_occurences = list()
+    R = n
+    C = n
+    D = 0
     for symbol in signature_sequence:
         if 'current_state' not in locals() or  current_state == 's':
             if symbol == '<':
@@ -12,8 +16,12 @@ def increasing(signature_sequence):
                 t_occurences.append('out')
                 current_state = 's'
     return t_occurences
-def peak(signature_sequence):
+def min_width_peak(signature_sequence):
+    n = len(signature_sequence)
     t_occurences = list()
+    R = n
+    C = n
+    D = 0
     for symbol in signature_sequence:
         if 'current_state' not in locals() or  current_state == 's':
             if symbol == '>':
