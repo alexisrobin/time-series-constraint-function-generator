@@ -4,13 +4,13 @@ from . import aggregators_code_generator, features_code_generator
 class APFAutomatonGenerator:
 
     aggregators = ['max', 'min', 'sum']
-    features = ['one', 'width', 'surface', 'max', 'min', 'range']
+    features = ['one', 'width', 'surface', 'max', 'min']
 
     @staticmethod
     def genAll(code_generator, decoration_table, seed_transducer):
-        for aggregator in aggregators:
-            for feature in features:
-                gen(code_generator, decoration_table, seed_transducer, aggregator, feature)
+        for aggregator in APFAutomatonGenerator.aggregators:
+            for feature in APFAutomatonGenerator.features:
+                APFAutomatonGenerator.gen(code_generator, decoration_table, seed_transducer, aggregator, feature)
 
     @staticmethod
     def gen(code_generator, decoration_table, seed_transducer, aggregator, feature):
@@ -82,6 +82,7 @@ class APFAutomatonGenerator:
         c.writeln("print(potential)")
         c.writeln("return " + a.aggregate("R", "C"))
         c.dedent()
+        c.writeln("")
 
     @staticmethod
     def genAccumulatorUpdate(code_generator, decoration_table, aggregator, feature, accumulator, semantic_letter):

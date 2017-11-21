@@ -18,10 +18,7 @@ def gen(path):
     c = CodeGenerator()
     c.begin(tab="    ")
     for st in seed_transducers:
-        APFAutomatonGenerator.gen(c, decoration_table, st, 'min', 'width')
-        APFAutomatonGenerator.gen(c, decoration_table, st, 'min', 'surface')
-        APFAutomatonGenerator.gen(c, decoration_table, st, 'min', 'max')
-        APFAutomatonGenerator.gen(c, decoration_table, st, 'min', 'min')
+        APFAutomatonGenerator.genAll(c, decoration_table, st)
         
     output_file = open(path, "w")
     output_file.write(c.end())
