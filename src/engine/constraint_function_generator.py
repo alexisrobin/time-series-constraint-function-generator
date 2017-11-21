@@ -1,6 +1,6 @@
 from .SeedTransducer import SeedTransducer
 from .CodeGenerator import CodeGenerator
-from .DecorationTable import DecorationTable
+from .DecorationTableManager import DecorationTableManager
 from .APFAutomatonGenerator import APFAutomatonGenerator
 
 def gen(path):
@@ -11,8 +11,8 @@ def gen(path):
     for line in lines:
         seed_transducers.append(SeedTransducer(line))
     
-    # instanciating decoration table
-    decoration_table = DecorationTable('../input/tables.pl')
+    # instanciating decoration tables
+    decoration_table = DecorationTableManager('../input/tables.pl')
     
     # generating pattern recognition function for every patterns
     c = CodeGenerator()

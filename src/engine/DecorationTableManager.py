@@ -1,7 +1,7 @@
 import re
 from . import util
 
-class DecorationTable:
+class DecorationTableManager:
 
     INIT = "init"
     FINAL = "final"
@@ -33,9 +33,9 @@ class DecorationTable:
         if table_name not in self.updates:
             self.updates[table_name] = {}
         
-        if semantic_letter == DecorationTable.VARS:
+        if semantic_letter == DecorationTableManager.VARS:
             self.updates[table_name][semantic_letter] = re.findall(r"\w", value) #storing accumulators letter
-        elif semantic_letter == DecorationTable.FINAL:
+        elif semantic_letter == DecorationTableManager.FINAL:
             self.updates[table_name][semantic_letter] = value
         else:
             if semantic_letter not in self.updates[table_name]:
@@ -49,13 +49,13 @@ class DecorationTable:
                 self.updates[table_name][semantic_letter][after][self.getAccumulatorLetterByIdx(table_name, i)] = operation
 
     def getAccumulatorLetterByIdx(self, table_name, idx):
-        return self.updates[table_name][DecorationTable.VARS][idx]
+        return self.updates[table_name][DecorationTableManager.VARS][idx]
 
     def getAccumulatorsLetter(self, table_name):
-        return self.updates[table_name][DecorationTable.VARS]
+        return self.updates[table_name][DecorationTableManager.VARS]
 
     def getFinal(self, table_name):
-        return self.updates[table_name][DecorationTable.FINAL]
+        return self.updates[table_name][DecorationTableManager.FINAL]
     
     def getUpdate(self, table_name, semantic_letter, after, accumulator):
         try:

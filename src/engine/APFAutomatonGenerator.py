@@ -106,10 +106,6 @@ class APFAutomatonGenerator:
             return feature.max()
         elif(func == "f"):
             return feature.phi(args[0], args[1])
-        elif(func == "delta"):
-            return feature.delta("i-1")
-        elif(func == "deltaprime"):
-            return feature.delta("i")
         elif(func == "default"):
             return aggregator.default(feature)
         elif(func == "g"):
