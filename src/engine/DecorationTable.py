@@ -9,7 +9,7 @@ class DecorationTable:
     NO_AFTER = "_"
     AFTER_0 = "_-0"
     AFTER_1 = "_-1"
-    
+
     def __init__(self, path):
         self.updates = {}
         functionRegex = r"(?P<function>\w+)\s?\((?P<args>.+)\)"

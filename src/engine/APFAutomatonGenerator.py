@@ -61,9 +61,11 @@ class APFAutomatonGenerator:
                 c.indent()
                 #c.writeln("t_occurences.append('" + transition.output+ "')")
 
-                # Updating accumulators
+                # Updating accumulators in tmp variable because accumulators updates are simultaneous
                 for accumulator in accumulators:
-                    c.writeln(accumulator + " = " + APFAutomatonGenerator.getUpdate(dt, table_name, a, f, transition.output, st.a, accumulator))
+                    c.writeln(accumulator + "_tmp = " + APFAutomatonGenerator.getUpdate(dt, table_name, a, f, transition.output, st.a, accumulator))
+                for accumulator in accumulators:
+                    c.writeln(accumulator + " = " + accumulator + "_tmp")
 
                 c.writeln("current_state = '" + transition.next + "'")  
                 c.dedent()
