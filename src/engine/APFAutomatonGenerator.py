@@ -20,18 +20,38 @@ class APFAutomatonGenerator:
         a = APFAutomatonGenerator.getAggregatorGenerator(aggregator)
         f = APFAutomatonGenerator.getFeatureGenerator(feature)
 
-        c.writeln("def " + aggregator + "_" + feature + "_" + st.pattern + "(signature_sequence):")
+        c.writeln("def " + aggregator + "_" + feature + "_" + st.pattern + "(sequence):")
         c.indent()
-        c.writeln("n = len(signature_sequence)") # Needed for features attribute code generator
+        c.writeln("n = len(sequence)") # Needed for features attribute code generator
+        c.writeln("signature_sequence = list()")
         c.writeln("t_occurences = list()")
+
+        c.writeln("aggregate = list()")
+        c.writeln("current = list()")
+        c.writeln("potential = list()")
 
         # Initializing accumulators
         c.writeln("R = " + a.default(f))
         c.writeln("C = " + a.default(f))
         c.writeln("D = " + f.neutral())
         
-        c.writeln("for symbol in signature_sequence:")
+        c.writeln("for i, number in enumerate(sequence):")
         c.indent()
+        c.writeln("if 'previous_number' in locals():")
+        c.indent()
+        c.writeln("if previous_number > number:")
+        c.indent()
+        c.writeln("symbol = '>'")
+        c.dedent()
+        c.writeln("elif previous_number < number:")
+        c.indent()
+        c.writeln("symbol = '<'")
+        c.dedent()
+        c.writeln("else:")
+        c.indent()
+        c.writeln("symbol = '='")
+        c.dedent()
+        c.writeln("signature_sequence.append(symbol)")
         first_if = True
         for state in st.states:
             state_name = state.name
@@ -43,7 +63,7 @@ class APFAutomatonGenerator:
                 c.indent()
                 c.writeln("t_occurences.append('" + transition.output+ "')")
 
-                # Gener accumulator updates
+                # Updating accumulators
                 APFAutomatonGenerator.genAccumulatorUpdate(c, dt, a, f, "R", transition.output)
                 APFAutomatonGenerator.genAccumulatorUpdate(c, dt, a, f, "C", transition.output)
                 APFAutomatonGenerator.genAccumulatorUpdate(c, dt, a, f, "D", transition.output)
@@ -52,6 +72,14 @@ class APFAutomatonGenerator:
                 c.dedent()
             c.dedent()
         c.dedent()
+        c.writeln("previous_number = number")
+        c.writeln("aggregate.append(R)")
+        c.writeln("current.append(C)")
+        c.writeln("potential.append(D)")
+        c.dedent()
+        c.writeln("print(aggregate)")
+        c.writeln("print(current)")
+        c.writeln("print(potential)")
         c.writeln("return " + a.aggregate("R", "C"))
         c.dedent()
 

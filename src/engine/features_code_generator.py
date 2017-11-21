@@ -70,3 +70,69 @@ class Width(Feature):
     @staticmethod
     def delta():
         return "1"
+
+class Surface(Feature):
+
+    @staticmethod
+    def neutral():
+        return "0"
+
+    @staticmethod
+    def min():
+        return "float('-inf')"
+
+    @staticmethod
+    def max():
+        return "float('inf')"
+
+    @staticmethod
+    def phi(a,b):
+        return a + "+" + b
+
+    @staticmethod
+    def delta():
+        return "sequence[i-1]"
+
+class Max(Feature):
+
+    @staticmethod
+    def neutral():
+        return "float('-inf')"
+
+    @staticmethod
+    def min():
+        return "float('-inf')"
+
+    @staticmethod
+    def max():
+        return "float('inf')"
+
+    @staticmethod
+    def phi(a,b):
+        return "max(" + a + "," + b + ")"
+
+    @staticmethod
+    def delta():
+        return "sequence[i-1]"
+
+class Min(Feature):
+
+    @staticmethod
+    def neutral():
+        return "float('inf')"
+
+    @staticmethod
+    def min():
+        return "float('-inf')"
+
+    @staticmethod
+    def max():
+        return "float('inf')"
+
+    @staticmethod
+    def phi(a,b):
+        return "min(" + a + "," + b + ")"
+
+    @staticmethod
+    def delta():
+        return "sequence[i-1]"
