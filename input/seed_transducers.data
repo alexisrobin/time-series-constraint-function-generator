@@ -1,2 +1,2 @@
-increasing;0;0?s,<:founde:s,>=:out:s
-peak;1;1?s,>=:out:s,<:out:r;r,<=:maybeb:r,>:found:t;t,>:in:t,=:maybea:t,<:outa:r
+increasing;0;0?s,<:found_end:s,>=:out:s
+peak;1;1?s,>=:out:s,<:out:r;r,<=:maybe(b):r,>:found:t;t,>:in:t,=:maybe(a):t,<:out(a):r

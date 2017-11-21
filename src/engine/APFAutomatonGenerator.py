@@ -1,10 +1,9 @@
-from . import aggregators_code_generator, features_code_generator
-
+from . import aggregators_code_generator, features_code_generator, util
 
 class APFAutomatonGenerator:
 
     aggregators = ['max', 'min', 'sum']
-    features = ['one', 'width', 'surface', 'max', 'min']
+    features = ['one', 'width', 'surface', 'max', 'min', 'range']
 
     @staticmethod
     def genAll(code_generator, decoration_table, seed_transducer):
@@ -19,21 +18,18 @@ class APFAutomatonGenerator:
         st = seed_transducer
         a = APFAutomatonGenerator.getAggregatorGenerator(aggregator)
         f = APFAutomatonGenerator.getFeatureGenerator(feature)
+        table_name = APFAutomatonGenerator.getDecorationTableNameForFeature(feature)
+        accumulators = dt.getAccumulatorsLetter(table_name)
 
         c.writeln("def " + aggregator + "_" + feature + "_" + st.pattern + "(sequence):")
         c.indent()
         c.writeln("n = len(sequence)") # Needed for features attribute code generator
-        c.writeln("signature_sequence = list()")
-        c.writeln("t_occurences = list()")
-
-        c.writeln("aggregate = list()")
-        c.writeln("current = list()")
-        c.writeln("potential = list()")
+        #c.writeln("signature_sequence = list()")
+        #c.writeln("t_occurences = list()")
 
         # Initializing accumulators
-        c.writeln("R = " + a.default(f))
-        c.writeln("C = " + a.default(f))
-        c.writeln("D = " + f.neutral())
+        for accumulator in accumulators:
+            c.writeln(accumulator + "=" + APFAutomatonGenerator.getUpdate(dt, table_name, a, f, dt.INIT, dt.NO_AFTER, accumulator))
         
         c.writeln("for i, number in enumerate(sequence):")
         c.indent()
@@ -51,7 +47,9 @@ class APFAutomatonGenerator:
         c.indent()
         c.writeln("symbol = '='")
         c.dedent()
-        c.writeln("signature_sequence.append(symbol)")
+        #c.writeln("signature_sequence.append(symbol)")
+        c.writeln("delta = sequence[i-1]")
+        c.writeln("deltaprime = sequence[i]")
         first_if = True
         for state in st.states:
             state_name = state.name
@@ -61,63 +59,71 @@ class APFAutomatonGenerator:
             for transition in state.transitions:
                 c.writeln("if symbol == '" + transition.input + "':")
                 c.indent()
-                c.writeln("t_occurences.append('" + transition.output+ "')")
+                #c.writeln("t_occurences.append('" + transition.output+ "')")
 
                 # Updating accumulators
-                APFAutomatonGenerator.genAccumulatorUpdate(c, dt, a, f, "R", transition.output)
-                APFAutomatonGenerator.genAccumulatorUpdate(c, dt, a, f, "C", transition.output)
-                APFAutomatonGenerator.genAccumulatorUpdate(c, dt, a, f, "D", transition.output)
+                for accumulator in accumulators:
+                    c.writeln(accumulator + " = " + APFAutomatonGenerator.getUpdate(dt, table_name, a, f, transition.output, st.a, accumulator))
 
                 c.writeln("current_state = '" + transition.next + "'")  
                 c.dedent()
             c.dedent()
         c.dedent()
         c.writeln("previous_number = number")
-        c.writeln("aggregate.append(R)")
-        c.writeln("current.append(C)")
-        c.writeln("potential.append(D)")
         c.dedent()
-        c.writeln("print(aggregate)")
-        c.writeln("print(current)")
-        c.writeln("print(potential)")
-        c.writeln("return " + a.aggregate("R", "C"))
+        c.writeln("return " + APFAutomatonGenerator.getFinal(dt, table_name, a, f))
         c.dedent()
         c.writeln("")
 
     @staticmethod
-    def genAccumulatorUpdate(code_generator, decoration_table, aggregator, feature, accumulator, semantic_letter):
-        if(decoration_table.hasUpdate(accumulator, semantic_letter)):
-            operation = decoration_table.getUpdate(accumulator, semantic_letter)
-            operation = operation.replace(")", "")
-            code_generator.writeln(accumulator + " = " + APFAutomatonGenerator.convertOperation(aggregator, feature, operation))
+    def getFinal(decoration_table, table_name, aggregator, feature):
+        operation = decoration_table.getFinal(table_name)
+        return APFAutomatonGenerator.genUpdate(aggregator, feature, operation)
 
     @staticmethod
-    def convertOperation(aggregator, feature, operation):
+    def getUpdate(decoration_table, table_name, aggregator, feature, semantic_letter, after, accumulator):
+        operation = decoration_table.getUpdate(table_name, semantic_letter, after, accumulator)
+        return APFAutomatonGenerator.genUpdate(aggregator, feature, operation)
+
+    @staticmethod
+    def genUpdate(aggregator, feature, operation):
         splittedOp = operation.split("(", 1)
         func = splittedOp[0]
         if(len(splittedOp) > 1):
-            arg1, arg2 = splittedOp[1].split(",", 1)   
-            arg1 = APFAutomatonGenerator.convertOperation(aggregator, feature, arg1)
-            arg2 = APFAutomatonGenerator.convertOperation(aggregator, feature, arg2)
-
+            args = util.top_level_split(splittedOp[1])
+            print(args)
+            args = [ APFAutomatonGenerator.genUpdate(aggregator, feature, x) for x in args ]
+            print(func)
+            print(args)
+        func = func.replace(")", "")
         if(func == "neutral"):
             return feature.neutral()
         elif(func == "min"):
             return feature.min()
         elif(func == "max"):
             return feature.max()
-        elif(func == "phi"):
-            return feature.phi(arg1, arg2)
+        elif(func == "f"):
+            return feature.phi(args[0], args[1])
         elif(func == "delta"):
-            return feature.delta()
+            return feature.delta("i-1")
+        elif(func == "deltaprime"):
+            return feature.delta("i")
         elif(func == "default"):
             return aggregator.default(feature)
-        elif(func == "a"):
-            return aggregator.aggregate(arg1, arg2)
-        elif(func in {"C", "R", "D"}):
-            return func
+        elif(func == "g"):
+            return aggregator.aggregate(args[0], args[1])
+        elif(func == "first"):
+            return "sequence[0]"
         else:
-            raise ValueError("Function " + func + " doesn't exist.")
+            ret = func
+            if('args' in locals()):
+                ret += "("
+                for i, arg in enumerate(args):
+                    ret += arg
+                    if(len(args) > i+1):
+                        ret += ","
+                ret += ")"
+            return ret
 
     @staticmethod
     def getAggregatorGenerator(aggregator):
@@ -146,5 +152,12 @@ class APFAutomatonGenerator:
             return features_code_generator.Range()
         else:
             raise ValueError("Feature " + feature + "doesn't exist.")
+    
+    @staticmethod
+    def getDecorationTableNameForFeature(feature):
+        if(feature == "range"):
+            return "range_function"
+        else:
+            return "function"
 
     

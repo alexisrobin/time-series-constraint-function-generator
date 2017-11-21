@@ -6,3 +6,4 @@ from . import constraint_function
 print(constraint_function.min_surface_peak([7,5,5,1,4,5,2,2,3,5,6,2,3,3,3,1]))
 print(constraint_function.min_max_peak([7,5,5,1,4,5,2,2,3,5,6,2,3,3,3,1]))
 print(constraint_function.min_min_increasing([4,3,5,5,2,1,1,3,3,4,6,6,3,1,3,3]))
+print(constraint_function.max_range_increasing([4,3,5,5,2,1,1,3,3,4,6,6,3,1,3,3]))

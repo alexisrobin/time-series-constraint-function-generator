@@ -1,13 +1,8 @@
 def max_one_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 1
-    C = 1
-    D = 1
+    c=1
+    d=1
+    r=1
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -16,38 +11,32 @@ def max_one_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = max(R,max(D,0))
-                    D = 1
+                    c = c
+                    d = 1
+                    r = max(r,max(max(d,0),0))
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return max(R,C)
+    return max(r,c)
 
 def max_width_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = 0
+    c=0
+    d=0
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -56,38 +45,32 @@ def max_width_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = max(R,D+1)
-                    D = 0
+                    c = c
+                    d = 0
+                    r = max(r,d+1+1)
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return max(R,C)
+    return max(r,c)
 
 def max_surface_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('-inf')
-    C = float('-inf')
-    D = 0
+    c=float('-inf')
+    d=0
+    r=float('-inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -96,38 +79,32 @@ def max_surface_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = max(R,D+sequence[i-1])
-                    D = 0
+                    c = c
+                    d = 0
+                    r = max(r,d+sequence[i-1]+sequence[i])
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return max(R,C)
+    return max(r,c)
 
 def max_max_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('-inf')
-    C = float('-inf')
-    D = float('-inf')
+    c=float('-inf')
+    d=float('-inf')
+    r=float('-inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -136,38 +113,32 @@ def max_max_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = max(R,max(D,sequence[i-1]))
-                    D = float('-inf')
+                    c = c
+                    d = float('-inf')
+                    r = max(r,max(max(d,sequence[i-1]),sequence[i]))
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return max(R,C)
+    return max(r,c)
 
 def max_min_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('-inf')
-    C = float('-inf')
-    D = float('inf')
+    c=float('-inf')
+    d=float('inf')
+    r=float('-inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -176,38 +147,76 @@ def max_min_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = max(R,min(D,sequence[i-1]))
-                    D = float('inf')
+                    c = c
+                    d = float('inf')
+                    r = max(r,min(min(d,sequence[i-1]),sequence[i]))
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return max(R,C)
+    return max(r,c)
+
+def max_range_increasing(sequence):
+    n = len(sequence)
+    c=0
+    h=sequence[0]
+    r=0
+    c_list = list()
+    h_list = list()
+    r_list = list()
+    for i, number in enumerate(sequence):
+        if 'previous_number' in locals():
+            if previous_number > number:
+                symbol = '>'
+            elif previous_number < number:
+                symbol = '<'
+            else:
+                symbol = '='
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
+            if 'current_state' not in locals() or  current_state == 's':
+                if symbol == '<':
+                    c = c
+                    h = sequence[i]
+                    print(abs(h-deltaprime))
+                    r = max(r,abs(h-deltaprime))
+                    current_state = 's'
+                if symbol == '>':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+                if symbol == '=':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+                c_list.append(c)
+                h_list.append(h)
+                r_list.append(r)
+        previous_number = number
+    print(c_list)
+    print(h_list)
+    print(r_list)
+    return max(r,c)
 
 def min_one_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 1
-    C = 1
-    D = 1
+    c=1
+    d=1
+    r=1
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -216,38 +225,32 @@ def min_one_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = min(R,max(D,0))
-                    D = 1
+                    c = c
+                    d = 1
+                    r = min(r,max(max(d,0),0))
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return min(R,C)
+    return min(r,c)
 
 def min_width_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = n
-    C = n
-    D = 0
+    c=n
+    d=0
+    r=n
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -256,38 +259,32 @@ def min_width_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = min(R,D+1)
-                    D = 0
+                    c = c
+                    d = 0
+                    r = min(r,d+1+1)
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return min(R,C)
+    return min(r,c)
 
 def min_surface_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('inf')
-    C = float('inf')
-    D = 0
+    c=float('inf')
+    d=0
+    r=float('inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -296,38 +293,32 @@ def min_surface_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = min(R,D+sequence[i-1])
-                    D = 0
+                    c = c
+                    d = 0
+                    r = min(r,d+sequence[i-1]+sequence[i])
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return min(R,C)
+    return min(r,c)
 
 def min_max_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('inf')
-    C = float('inf')
-    D = float('-inf')
+    c=float('inf')
+    d=float('-inf')
+    r=float('inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -336,38 +327,32 @@ def min_max_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = min(R,max(D,sequence[i-1]))
-                    D = float('-inf')
+                    c = c
+                    d = float('-inf')
+                    r = min(r,max(max(d,sequence[i-1]),sequence[i]))
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return min(R,C)
+    return min(r,c)
 
 def min_min_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('inf')
-    C = float('inf')
-    D = float('inf')
+    c=float('inf')
+    d=float('inf')
+    r=float('inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -376,38 +361,66 @@ def min_min_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = min(R,min(D,sequence[i-1]))
-                    D = float('inf')
+                    c = c
+                    d = float('inf')
+                    r = min(r,min(min(d,sequence[i-1]),sequence[i]))
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return min(R,C)
+    return min(r,c)
+
+def min_range_increasing(sequence):
+    n = len(sequence)
+    c=float('inf')
+    h=sequence[0]
+    r=float('inf')
+    for i, number in enumerate(sequence):
+        if 'previous_number' in locals():
+            if previous_number > number:
+                symbol = '>'
+            elif previous_number < number:
+                symbol = '<'
+            else:
+                symbol = '='
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
+            if 'current_state' not in locals() or  current_state == 's':
+                if symbol == '<':
+                    c = c
+                    h = sequence[i]
+                    r = min(r,abs(h-deltaprime))
+                    current_state = 's'
+                if symbol == '>':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+                if symbol == '=':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+        previous_number = number
+    return min(r,c)
 
 def sum_one_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = 1
+    c=0
+    d=1
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -416,38 +429,32 @@ def sum_one_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = R+max(D,0)
-                    D = 1
+                    c = c
+                    d = 1
+                    r = r+max(max(d,0),0)
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return R+C
+    return r+c
 
 def sum_width_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = 0
+    c=0
+    d=0
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -456,38 +463,32 @@ def sum_width_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = R+D+1
-                    D = 0
+                    c = c
+                    d = 0
+                    r = r+d+1+1
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return R+C
+    return r+c
 
 def sum_surface_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = 0
+    c=0
+    d=0
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -496,38 +497,32 @@ def sum_surface_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = R+D+sequence[i-1]
-                    D = 0
+                    c = c
+                    d = 0
+                    r = r+d+sequence[i-1]+sequence[i]
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return R+C
+    return r+c
 
 def sum_max_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = float('-inf')
+    c=0
+    d=float('-inf')
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -536,38 +531,32 @@ def sum_max_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = R+max(D,sequence[i-1])
-                    D = float('-inf')
+                    c = c
+                    d = float('-inf')
+                    r = r+max(max(d,sequence[i-1]),sequence[i])
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return R+C
+    return r+c
 
 def sum_min_increasing(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = float('inf')
+    c=0
+    d=float('inf')
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -576,38 +565,66 @@ def sum_min_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
-                    t_occurences.append('founde')
-                    R = R+min(D,sequence[i-1])
-                    D = float('inf')
+                    c = c
+                    d = float('inf')
+                    r = r+min(min(d,sequence[i-1]),sequence[i])
                     current_state = 's'
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return R+C
+    return r+c
+
+def sum_range_increasing(sequence):
+    n = len(sequence)
+    c=0
+    h=sequence[0]
+    r=0
+    for i, number in enumerate(sequence):
+        if 'previous_number' in locals():
+            if previous_number > number:
+                symbol = '>'
+            elif previous_number < number:
+                symbol = '<'
+            else:
+                symbol = '='
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
+            if 'current_state' not in locals() or  current_state == 's':
+                if symbol == '<':
+                    c = c
+                    h = sequence[i]
+                    r = r+abs(h-deltaprime)
+                    current_state = 's'
+                if symbol == '>':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+                if symbol == '=':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+        previous_number = number
+    return r+c
 
 def max_one_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 1
-    C = 1
-    D = 1
+    c=1
+    d=1
+    r=1
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -616,66 +633,64 @@ def max_one_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = max(D,0)
+                    c = c
+                    d = max(d,0)
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = max(D,0)
+                    c = c
+                    d = max(d,0)
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = max(D,0)
-                    D = 1
+                    c = max(d,0)
+                    d = 1
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = max(C,max(D,0))
-                    D = 1
+                    c = max(c,max(d,0))
+                    d = 1
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = max(D,0)
+                    c = c
+                    d = max(d,0)
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = max(R,C)
-                    C = 1
-                    D = 1
+                    c = 1
+                    d = 1
+                    r = max(r,c)
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return max(R,C)
+    return max(r,c)
 
 def max_width_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = 0
+    c=0
+    d=0
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -684,66 +699,64 @@ def max_width_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = D+1
+                    c = c
+                    d = d+1
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = D+1
+                    c = c
+                    d = d+1
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = D+1
-                    D = 0
+                    c = d+1
+                    d = 0
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = C+D+1
-                    D = 0
+                    c = c+d+1
+                    d = 0
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = D+1
+                    c = c
+                    d = d+1
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = max(R,C)
-                    C = 0
-                    D = 0
+                    c = 0
+                    d = 0
+                    r = max(r,c)
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return max(R,C)
+    return max(r,c)
 
 def max_surface_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('-inf')
-    C = float('-inf')
-    D = 0
+    c=float('-inf')
+    d=0
+    r=float('-inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -752,66 +765,64 @@ def max_surface_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = D+sequence[i-1]
+                    c = c
+                    d = d+sequence[i-1]
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = D+sequence[i-1]
+                    c = c
+                    d = d+sequence[i-1]
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = D+sequence[i-1]
-                    D = 0
+                    c = d+sequence[i-1]
+                    d = 0
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = C+D+sequence[i-1]
-                    D = 0
+                    c = c+d+sequence[i-1]
+                    d = 0
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = D+sequence[i-1]
+                    c = c
+                    d = d+sequence[i-1]
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = max(R,C)
-                    C = float('-inf')
-                    D = 0
+                    c = float('-inf')
+                    d = 0
+                    r = max(r,c)
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return max(R,C)
+    return max(r,c)
 
 def max_max_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('-inf')
-    C = float('-inf')
-    D = float('-inf')
+    c=float('-inf')
+    d=float('-inf')
+    r=float('-inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -820,66 +831,64 @@ def max_max_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = max(D,sequence[i-1])
+                    c = c
+                    d = max(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = max(D,sequence[i-1])
+                    c = c
+                    d = max(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = max(D,sequence[i-1])
-                    D = float('-inf')
+                    c = max(d,sequence[i-1])
+                    d = float('-inf')
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = max(C,max(D,sequence[i-1]))
-                    D = float('-inf')
+                    c = max(c,max(d,sequence[i-1]))
+                    d = float('-inf')
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = max(D,sequence[i-1])
+                    c = c
+                    d = max(d,sequence[i-1])
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = max(R,C)
-                    C = float('-inf')
-                    D = float('-inf')
+                    c = float('-inf')
+                    d = float('-inf')
+                    r = max(r,c)
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return max(R,C)
+    return max(r,c)
 
 def max_min_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('-inf')
-    C = float('-inf')
-    D = float('inf')
+    c=float('-inf')
+    d=float('inf')
+    r=float('-inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -888,66 +897,130 @@ def max_min_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = min(D,sequence[i-1])
+                    c = c
+                    d = min(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = min(D,sequence[i-1])
+                    c = c
+                    d = min(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = min(D,sequence[i-1])
-                    D = float('inf')
+                    c = min(d,sequence[i-1])
+                    d = float('inf')
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = min(C,min(D,sequence[i-1]))
-                    D = float('inf')
+                    c = min(c,min(d,sequence[i-1]))
+                    d = float('inf')
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = min(D,sequence[i-1])
+                    c = c
+                    d = min(d,sequence[i-1])
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = max(R,C)
-                    C = float('-inf')
-                    D = float('inf')
+                    c = float('-inf')
+                    d = float('inf')
+                    r = max(r,c)
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return max(R,C)
+    return max(r,c)
+
+def max_range_peak(sequence):
+    n = len(sequence)
+    c=0
+    h=sequence[0]
+    r=0
+    for i, number in enumerate(sequence):
+        if 'previous_number' in locals():
+            if previous_number > number:
+                symbol = '>'
+            elif previous_number < number:
+                symbol = '<'
+            else:
+                symbol = '='
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
+            if 'current_state' not in locals() or  current_state == 's':
+                if symbol == '>':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+                if symbol == '=':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+                if symbol == '<':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 'r'
+            elif  current_state == 'r':
+                if symbol == '<':
+                    c = c
+                    h = h
+                    r = r
+                    current_state = 'r'
+                if symbol == '=':
+                    c = c
+                    h = h
+                    r = r
+                    current_state = 'r'
+                if symbol == '>':
+                    c = abs(h-deltaprime)
+                    h = h
+                    r = r
+                    current_state = 't'
+            elif  current_state == 't':
+                if symbol == '>':
+                    c = abs(h-deltaprime)
+                    h = h
+                    r = r
+                    current_state = 't'
+                if symbol == '=':
+                    c = c
+                    h = h
+                    r = r
+                    current_state = 't'
+                if symbol == '<':
+                    c = 0
+                    h = sequence[i]
+                    r = max(r,c)
+                    current_state = 'r'
+        previous_number = number
+    return max(r,c)
 
 def min_one_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 1
-    C = 1
-    D = 1
+    c=1
+    d=1
+    r=1
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -956,66 +1029,64 @@ def min_one_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = max(D,0)
+                    c = c
+                    d = max(d,0)
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = max(D,0)
+                    c = c
+                    d = max(d,0)
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = max(D,0)
-                    D = 1
+                    c = max(d,0)
+                    d = 1
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = max(C,max(D,0))
-                    D = 1
+                    c = max(c,max(d,0))
+                    d = 1
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = max(D,0)
+                    c = c
+                    d = max(d,0)
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = min(R,C)
-                    C = 1
-                    D = 1
+                    c = 1
+                    d = 1
+                    r = min(r,c)
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return min(R,C)
+    return min(r,c)
 
 def min_width_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = n
-    C = n
-    D = 0
+    c=n
+    d=0
+    r=n
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -1024,66 +1095,64 @@ def min_width_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = D+1
+                    c = c
+                    d = d+1
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = D+1
+                    c = c
+                    d = d+1
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = D+1
-                    D = 0
+                    c = d+1
+                    d = 0
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = C+D+1
-                    D = 0
+                    c = c+d+1
+                    d = 0
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = D+1
+                    c = c
+                    d = d+1
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = min(R,C)
-                    C = n
-                    D = 0
+                    c = n
+                    d = 0
+                    r = min(r,c)
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return min(R,C)
+    return min(r,c)
 
 def min_surface_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('inf')
-    C = float('inf')
-    D = 0
+    c=float('inf')
+    d=0
+    r=float('inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -1092,66 +1161,64 @@ def min_surface_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = D+sequence[i-1]
+                    c = c
+                    d = d+sequence[i-1]
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = D+sequence[i-1]
+                    c = c
+                    d = d+sequence[i-1]
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = D+sequence[i-1]
-                    D = 0
+                    c = d+sequence[i-1]
+                    d = 0
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = C+D+sequence[i-1]
-                    D = 0
+                    c = c+d+sequence[i-1]
+                    d = 0
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = D+sequence[i-1]
+                    c = c
+                    d = d+sequence[i-1]
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = min(R,C)
-                    C = float('inf')
-                    D = 0
+                    c = float('inf')
+                    d = 0
+                    r = min(r,c)
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return min(R,C)
+    return min(r,c)
 
 def min_max_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('inf')
-    C = float('inf')
-    D = float('-inf')
+    c=float('inf')
+    d=float('-inf')
+    r=float('inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -1160,66 +1227,64 @@ def min_max_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = max(D,sequence[i-1])
+                    c = c
+                    d = max(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = max(D,sequence[i-1])
+                    c = c
+                    d = max(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = max(D,sequence[i-1])
-                    D = float('-inf')
+                    c = max(d,sequence[i-1])
+                    d = float('-inf')
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = max(C,max(D,sequence[i-1]))
-                    D = float('-inf')
+                    c = max(c,max(d,sequence[i-1]))
+                    d = float('-inf')
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = max(D,sequence[i-1])
+                    c = c
+                    d = max(d,sequence[i-1])
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = min(R,C)
-                    C = float('inf')
-                    D = float('-inf')
+                    c = float('inf')
+                    d = float('-inf')
+                    r = min(r,c)
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return min(R,C)
+    return min(r,c)
 
 def min_min_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = float('inf')
-    C = float('inf')
-    D = float('inf')
+    c=float('inf')
+    d=float('inf')
+    r=float('inf')
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -1228,66 +1293,130 @@ def min_min_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = min(D,sequence[i-1])
+                    c = c
+                    d = min(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = min(D,sequence[i-1])
+                    c = c
+                    d = min(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = min(D,sequence[i-1])
-                    D = float('inf')
+                    c = min(d,sequence[i-1])
+                    d = float('inf')
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = min(C,min(D,sequence[i-1]))
-                    D = float('inf')
+                    c = min(c,min(d,sequence[i-1]))
+                    d = float('inf')
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = min(D,sequence[i-1])
+                    c = c
+                    d = min(d,sequence[i-1])
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = min(R,C)
-                    C = float('inf')
-                    D = float('inf')
+                    c = float('inf')
+                    d = float('inf')
+                    r = min(r,c)
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return min(R,C)
+    return min(r,c)
+
+def min_range_peak(sequence):
+    n = len(sequence)
+    c=float('inf')
+    h=sequence[0]
+    r=float('inf')
+    for i, number in enumerate(sequence):
+        if 'previous_number' in locals():
+            if previous_number > number:
+                symbol = '>'
+            elif previous_number < number:
+                symbol = '<'
+            else:
+                symbol = '='
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
+            if 'current_state' not in locals() or  current_state == 's':
+                if symbol == '>':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+                if symbol == '=':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+                if symbol == '<':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 'r'
+            elif  current_state == 'r':
+                if symbol == '<':
+                    c = c
+                    h = h
+                    r = r
+                    current_state = 'r'
+                if symbol == '=':
+                    c = c
+                    h = h
+                    r = r
+                    current_state = 'r'
+                if symbol == '>':
+                    c = abs(h-deltaprime)
+                    h = h
+                    r = r
+                    current_state = 't'
+            elif  current_state == 't':
+                if symbol == '>':
+                    c = abs(h-deltaprime)
+                    h = h
+                    r = r
+                    current_state = 't'
+                if symbol == '=':
+                    c = c
+                    h = h
+                    r = r
+                    current_state = 't'
+                if symbol == '<':
+                    c = float('inf')
+                    h = sequence[i]
+                    r = min(r,c)
+                    current_state = 'r'
+        previous_number = number
+    return min(r,c)
 
 def sum_one_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = 1
+    c=0
+    d=1
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -1296,66 +1425,64 @@ def sum_one_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = max(D,0)
+                    c = c
+                    d = max(d,0)
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = max(D,0)
+                    c = c
+                    d = max(d,0)
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = max(D,0)
-                    D = 1
+                    c = max(d,0)
+                    d = 1
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = max(C,max(D,0))
-                    D = 1
+                    c = max(c,max(d,0))
+                    d = 1
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = max(D,0)
+                    c = c
+                    d = max(d,0)
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = R+C
-                    C = 0
-                    D = 1
+                    c = 0
+                    d = 1
+                    r = r+c
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return R+C
+    return r+c
 
 def sum_width_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = 0
+    c=0
+    d=0
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -1364,66 +1491,64 @@ def sum_width_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = D+1
+                    c = c
+                    d = d+1
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = D+1
+                    c = c
+                    d = d+1
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = D+1
-                    D = 0
+                    c = d+1
+                    d = 0
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = C+D+1
-                    D = 0
+                    c = c+d+1
+                    d = 0
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = D+1
+                    c = c
+                    d = d+1
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = R+C
-                    C = 0
-                    D = 0
+                    c = 0
+                    d = 0
+                    r = r+c
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return R+C
+    return r+c
 
 def sum_surface_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = 0
+    c=0
+    d=0
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -1432,66 +1557,64 @@ def sum_surface_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = D+sequence[i-1]
+                    c = c
+                    d = d+sequence[i-1]
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = D+sequence[i-1]
+                    c = c
+                    d = d+sequence[i-1]
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = D+sequence[i-1]
-                    D = 0
+                    c = d+sequence[i-1]
+                    d = 0
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = C+D+sequence[i-1]
-                    D = 0
+                    c = c+d+sequence[i-1]
+                    d = 0
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = D+sequence[i-1]
+                    c = c
+                    d = d+sequence[i-1]
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = R+C
-                    C = 0
-                    D = 0
+                    c = 0
+                    d = 0
+                    r = r+c
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return R+C
+    return r+c
 
 def sum_max_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = float('-inf')
+    c=0
+    d=float('-inf')
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -1500,66 +1623,64 @@ def sum_max_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = max(D,sequence[i-1])
+                    c = c
+                    d = max(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = max(D,sequence[i-1])
+                    c = c
+                    d = max(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = max(D,sequence[i-1])
-                    D = float('-inf')
+                    c = max(d,sequence[i-1])
+                    d = float('-inf')
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = max(C,max(D,sequence[i-1]))
-                    D = float('-inf')
+                    c = max(c,max(d,sequence[i-1]))
+                    d = float('-inf')
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = max(D,sequence[i-1])
+                    c = c
+                    d = max(d,sequence[i-1])
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = R+C
-                    C = 0
-                    D = float('-inf')
+                    c = 0
+                    d = float('-inf')
+                    r = r+c
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return R+C
+    return r+c
 
 def sum_min_peak(sequence):
     n = len(sequence)
-    signature_sequence = list()
-    t_occurences = list()
-    aggregate = list()
-    current = list()
-    potential = list()
-    R = 0
-    C = 0
-    D = float('inf')
+    c=0
+    d=float('inf')
+    r=0
     for i, number in enumerate(sequence):
         if 'previous_number' in locals():
             if previous_number > number:
@@ -1568,53 +1689,122 @@ def sum_min_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            signature_sequence.append(symbol)
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '=':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 's'
                 if symbol == '<':
-                    t_occurences.append('out')
+                    c = c
+                    d = d
+                    r = r
                     current_state = 'r'
             elif  current_state == 'r':
                 if symbol == '<':
-                    t_occurences.append('maybeb')
-                    D = min(D,sequence[i-1])
+                    c = c
+                    d = min(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '=':
-                    t_occurences.append('maybeb')
-                    D = min(D,sequence[i-1])
+                    c = c
+                    d = min(d,sequence[i-1])
+                    r = r
                     current_state = 'r'
                 if symbol == '>':
-                    t_occurences.append('found')
-                    C = min(D,sequence[i-1])
-                    D = float('inf')
+                    c = min(d,sequence[i-1])
+                    d = float('inf')
+                    r = r
                     current_state = 't'
             elif  current_state == 't':
                 if symbol == '>':
-                    t_occurences.append('in')
-                    C = min(C,min(D,sequence[i-1]))
-                    D = float('inf')
+                    c = min(c,min(d,sequence[i-1]))
+                    d = float('inf')
+                    r = r
                     current_state = 't'
                 if symbol == '=':
-                    t_occurences.append('maybea')
-                    D = min(D,sequence[i-1])
+                    c = c
+                    d = min(d,sequence[i-1])
+                    r = r
                     current_state = 't'
                 if symbol == '<':
-                    t_occurences.append('outa')
-                    R = R+C
-                    C = 0
-                    D = float('inf')
+                    c = 0
+                    d = float('inf')
+                    r = r+c
                     current_state = 'r'
         previous_number = number
-        aggregate.append(R)
-        current.append(C)
-        potential.append(D)
-    print(aggregate)
-    print(current)
-    print(potential)
-    return R+C
+    return r+c
+
+def sum_range_peak(sequence):
+    n = len(sequence)
+    c=0
+    h=sequence[0]
+    r=0
+    for i, number in enumerate(sequence):
+        if 'previous_number' in locals():
+            if previous_number > number:
+                symbol = '>'
+            elif previous_number < number:
+                symbol = '<'
+            else:
+                symbol = '='
+            delta = sequence[i-1]
+            deltaprime = sequence[i]
+            if 'current_state' not in locals() or  current_state == 's':
+                if symbol == '>':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+                if symbol == '=':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 's'
+                if symbol == '<':
+                    c = c
+                    h = sequence[i]
+                    r = r
+                    current_state = 'r'
+            elif  current_state == 'r':
+                if symbol == '<':
+                    c = c
+                    h = h
+                    r = r
+                    current_state = 'r'
+                if symbol == '=':
+                    c = c
+                    h = h
+                    r = r
+                    current_state = 'r'
+                if symbol == '>':
+                    c = abs(h-deltaprime)
+                    h = h
+                    r = r
+                    current_state = 't'
+            elif  current_state == 't':
+                if symbol == '>':
+                    c = abs(h-deltaprime)
+                    h = h
+                    r = r
+                    current_state = 't'
+                if symbol == '=':
+                    c = c
+                    h = h
+                    r = r
+                    current_state = 't'
+                if symbol == '<':
+                    c = 0
+                    h = sequence[i]
+                    r = r+c
+                    current_state = 'r'
+        previous_number = number
+    return r+c
 

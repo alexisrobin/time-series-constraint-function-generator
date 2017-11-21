@@ -12,7 +12,7 @@ def gen(path):
         seed_transducers.append(SeedTransducer(line))
     
     # instanciating decoration table
-    decoration_table = DecorationTable('../input/decoration_tables.data')
+    decoration_table = DecorationTable('../input/tables.pl')
     
     # generating pattern recognition function for every patterns
     c = CodeGenerator()

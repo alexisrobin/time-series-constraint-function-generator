@@ -19,12 +19,12 @@ class Feature(ABC):
 
     @staticmethod
     @abstractmethod
-    def phi(a,b):
+    def phi(arg1,arg2):
         pass
 
     @staticmethod
     @abstractmethod
-    def delta():
+    def delta(arg):
         pass
 
 class One(Feature):
@@ -42,11 +42,11 @@ class One(Feature):
         return "1"
 
     @staticmethod
-    def phi(a,b):
-        return "max(" + a + "," + b + ")"
+    def phi(arg1,arg2):
+        return "max(" + arg1 + "," + arg2 + ")"
 
     @staticmethod
-    def delta():
+    def delta(arg):
         return "0"
 
 class Width(Feature):
@@ -64,11 +64,11 @@ class Width(Feature):
         return "n"
 
     @staticmethod
-    def phi(a,b):
-        return a + "+" + b
+    def phi(arg1,arg2):
+        return arg1 + "+" + arg2
 
     @staticmethod
-    def delta():
+    def delta(arg):
         return "1"
 
 class Surface(Feature):
@@ -86,12 +86,12 @@ class Surface(Feature):
         return "float('inf')"
 
     @staticmethod
-    def phi(a,b):
-        return a + "+" + b
+    def phi(arg1, arg2):
+        return arg1 + "+" + arg2
 
     @staticmethod
-    def delta():
-        return "sequence[i-1]"
+    def delta(arg):
+        return "sequence[" + arg + "]"
 
 class Max(Feature):
 
@@ -108,12 +108,12 @@ class Max(Feature):
         return "float('inf')"
 
     @staticmethod
-    def phi(a,b):
-        return "max(" + a + "," + b + ")"
+    def phi(arg1, arg2):
+        return "max(" + arg1 + "," + arg2 + ")"
 
     @staticmethod
-    def delta():
-        return "sequence[i-1]"
+    def delta(arg):
+        return "sequence[" + arg + "]"
 
 class Min(Feature):
 
@@ -130,9 +130,31 @@ class Min(Feature):
         return "float('inf')"
 
     @staticmethod
-    def phi(a,b):
-        return "min(" + a + "," + b + ")"
+    def phi(arg1, arg2):
+        return "min(" + arg1 + "," + arg2 + ")"
 
     @staticmethod
-    def delta():
-        return "sequence[i-1]"
+    def delta(arg):
+        return "sequence[" + arg + "]"
+
+class Range(Feature):
+
+    @staticmethod
+    def neutral():
+        return "0"
+
+    @staticmethod
+    def min():
+        return "0"
+
+    @staticmethod
+    def max():
+        return "float('inf')"
+
+    @staticmethod
+    def phi(arg1, arg2):
+        raise NotImplementedError("Should never happened")
+
+    @staticmethod
+    def delta(arg):
+        return "sequence[" + arg + "]"

@@ -1,7 +1,0 @@
-outr/D<-neutral
-outa/R<-a(R,C):C<-default:D<-neutral
-maybeb/D<-phi(D,delta)
-maybea/D<-phi(D,delta)
-found/C<-phi(D,delta):D<-neutral
-founde/R<-a(R,phi(D,delta)):D<-neutral
-in/C<-phi(C,phi(D,delta)):D<-neutral
