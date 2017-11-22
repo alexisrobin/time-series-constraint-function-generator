@@ -6,20 +6,20 @@ class APFAutomatonGenerator:
     features = ['one', 'width', 'surface', 'max', 'min', 'range']
 
     @staticmethod
-    def genAll(code_generator, decoration_table, seed_transducer):
+    def genAll(code_generator, dt_manager, st_manager):
         for aggregator in APFAutomatonGenerator.aggregators:
             for feature in APFAutomatonGenerator.features:
-                APFAutomatonGenerator.gen(code_generator, decoration_table, seed_transducer, aggregator, feature)
+                for pattern in st_manager.seed_transducers:
+                    APFAutomatonGenerator.gen(code_generator, dt_manager, st_manager.seed_transducers[pattern], aggregator, feature)
 
     @staticmethod
-    def gen(code_generator, decoration_table, seed_transducer, aggregator, feature):
+    def gen(code_generator, dt_manager, seed_transducer, aggregator, feature):
         c = code_generator
-        dt = decoration_table
         st = seed_transducer
         a = APFAutomatonGenerator.getAggregatorGenerator(aggregator)
         f = APFAutomatonGenerator.getFeatureGenerator(feature)
         table_name = APFAutomatonGenerator.getDecorationTableNameForFeature(feature)
-        accumulators = dt.getAccumulatorsLetter(table_name)
+        accumulators = dt_manager.getAccumulatorsLetter(table_name)
 
         c.writeln("def " + aggregator + "_" + feature + "_" + st.pattern + "(sequence):")
         c.indent()
@@ -29,7 +29,7 @@ class APFAutomatonGenerator:
 
         # Initializing accumulators
         for accumulator in accumulators:
-            c.writeln(accumulator + "=" + APFAutomatonGenerator.getUpdate(dt, table_name, a, f, dt.INIT, dt.NO_AFTER, accumulator))
+            c.writeln(accumulator + "=" + APFAutomatonGenerator.getUpdate(dt_manager, table_name, a, f, dt_manager.INIT, dt_manager.NO_AFTER, accumulator))
         
         c.writeln("for i, number in enumerate(sequence):")
         c.indent()
@@ -51,7 +51,7 @@ class APFAutomatonGenerator:
         c.writeln("delta = sequence[i-1]")
         c.writeln("deltaprime = sequence[i]")
         first_if = True
-        for state in st.states:
+        for letter, state in st.states.items():
             state_name = state.name
             c.writeln(("el" if first_if == False else "") + ("if 'current_state' not in locals() or " if state.is_entry_state else "if ") + " current_state == '" + state_name + "':")
             first_if = False
@@ -63,7 +63,7 @@ class APFAutomatonGenerator:
 
                 # Updating accumulators in tmp variable because accumulators updates are simultaneous
                 for accumulator in accumulators:
-                    c.writeln(accumulator + "_tmp = " + APFAutomatonGenerator.getUpdate(dt, table_name, a, f, transition.output, st.a, accumulator))
+                    c.writeln(accumulator + "_tmp = " + APFAutomatonGenerator.getUpdate(dt_manager, table_name, a, f, transition.output, st.after, accumulator))
                 for accumulator in accumulators:
                     c.writeln(accumulator + " = " + accumulator + "_tmp")
 
@@ -73,18 +73,18 @@ class APFAutomatonGenerator:
         c.dedent()
         c.writeln("previous_number = number")
         c.dedent()
-        c.writeln("return " + APFAutomatonGenerator.getFinal(dt, table_name, a, f))
+        c.writeln("return " + APFAutomatonGenerator.getFinal(dt_manager, table_name, a, f))
         c.dedent()
         c.writeln("")
 
     @staticmethod
-    def getFinal(decoration_table, table_name, aggregator, feature):
-        operation = decoration_table.getFinal(table_name)
+    def getFinal(dt_manager, table_name, aggregator, feature):
+        operation = dt_manager.getFinal(table_name)
         return APFAutomatonGenerator.genUpdate(aggregator, feature, operation)
 
     @staticmethod
-    def getUpdate(decoration_table, table_name, aggregator, feature, semantic_letter, after, accumulator):
-        operation = decoration_table.getUpdate(table_name, semantic_letter, after, accumulator)
+    def getUpdate(dt_manager, table_name, aggregator, feature, semantic_letter, after, accumulator):
+        operation = dt_manager.getUpdate(table_name, semantic_letter, after, accumulator)
         return APFAutomatonGenerator.genUpdate(aggregator, feature, operation)
 
     @staticmethod
@@ -93,10 +93,8 @@ class APFAutomatonGenerator:
         func = splittedOp[0]
         if(len(splittedOp) > 1):
             args = util.top_level_split(splittedOp[1])
-            print(args)
             args = [ APFAutomatonGenerator.genUpdate(aggregator, feature, x) for x in args ]
-            print(func)
-            print(args)
+            
         func = func.replace(")", "")
         if(func == "neutral"):
             return feature.neutral()

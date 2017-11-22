@@ -20,8 +20,6 @@ class DecorationTableManager:
             if(len(attr) > 2):
                 attr = re.split(regex, attr[2])
                 self.addToUpdates(attr[0],attr[1],attr[2],attr[4])
-
-        print(self.updates)
         
     def addToUpdates(self, table_name, semantic_letter, after, value):
 
