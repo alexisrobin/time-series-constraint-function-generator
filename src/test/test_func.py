@@ -6,7 +6,7 @@ def timeAndValidateFunc(f, arg, ouput):
     time1 = time.time()
     ret = f(arg)
     time2 = time.time()
-    print('\n')
+    print("\n")
     print('TEST %s' % (f.__name__))
     if ouput == ret:
         print('=> PASS')
@@ -24,6 +24,7 @@ sequence5 = [4,4,6,4,1,1,3,4,4,6,6,5,2,2,4,3]
 sequence6 = [1,2,3,2,5,6,7,4,1,3,4,6,1,2,4,4]
 sequence7 = [1,2,6,6,4,4,3,5,2,5,1,5,3,3,4,4]
 sequence8 = [3,4,2,2,5,6,6,4,4,3,1,1,4,6,4,4]
+sequence9 = [1,3,7,4,3,6,6,5,3,3,2,6,5,5,5,7]
 
 timeAndValidateFunc(constraint_function.min_surface_peak, sequence1, 9)
 timeAndValidateFunc(constraint_function.min_max_peak, sequence1, 3)
@@ -35,3 +36,6 @@ timeAndValidateFunc(constraint_function.min_min_gorge, sequence4, 3)
 timeAndValidateFunc(constraint_function.max_surface_strictly_decreasing_sequence, sequence5, 13)
 timeAndValidateFunc(constraint_function.min_max_dip_on_increasing_sequence, sequence6, 5)
 timeAndValidateFunc(constraint_function.min_max_inflexion, sequence7, 1)
+timeAndValidateFunc(constraint_function.sum_width_valley, sequence9, 9)
+timeAndValidateFunc(constraint_function.sum_width_decreasing_sequence, sequence8, 9)
+timeAndValidateFunc(constraint_function.min_width_decreasing_sequence, sequence8, 2)

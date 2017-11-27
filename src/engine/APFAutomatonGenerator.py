@@ -48,8 +48,8 @@ class APFAutomatonGenerator:
         c.writeln("symbol = '='")
         c.dedent()
         #c.writeln("signature_sequence.append(symbol)")
-        c.writeln("delta = sequence[i-1]")
-        c.writeln("deltaprime = sequence[i]")
+        c.writeln("delta = " + f.delta())
+        c.writeln("deltaprime = " + f.deltaprime())
         first_if = True
         for letter, state in st.states.items():
             state_name = state.name

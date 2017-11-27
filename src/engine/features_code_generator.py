@@ -22,6 +22,16 @@ class Feature(ABC):
     def phi(arg1,arg2):
         pass
 
+    @staticmethod
+    @abstractmethod
+    def delta():
+        pass
+    
+    @staticmethod
+    @abstractmethod
+    def deltaprime():
+        pass
+
 class One(Feature):
 
     @staticmethod
@@ -39,6 +49,14 @@ class One(Feature):
     @staticmethod
     def phi(arg1,arg2):
         return "max(" + arg1 + "," + arg2 + ")"
+
+    @staticmethod
+    def delta():
+        return "0"
+
+    @staticmethod
+    def deltaprime():
+        return "0"
 
 class Width(Feature):
 
@@ -58,6 +76,14 @@ class Width(Feature):
     def phi(arg1,arg2):
         return arg1 + "+" + arg2
 
+    @staticmethod
+    def delta():
+        return "1"
+
+    @staticmethod
+    def deltaprime():
+        return "1"
+
 class Surface(Feature):
 
     @staticmethod
@@ -75,6 +101,14 @@ class Surface(Feature):
     @staticmethod
     def phi(arg1, arg2):
         return arg1 + "+" + arg2
+
+    @staticmethod
+    def delta():
+        return "sequence[i-1]"
+
+    @staticmethod
+    def deltaprime():
+        return "sequence[i]"
 
 class Max(Feature):
 
@@ -94,6 +128,14 @@ class Max(Feature):
     def phi(arg1, arg2):
         return "max(" + arg1 + "," + arg2 + ")"
 
+    @staticmethod
+    def delta():
+        return "sequence[i-1]"
+
+    @staticmethod
+    def deltaprime():
+        return "sequence[i]"
+
 class Min(Feature):
 
     @staticmethod
@@ -112,6 +154,14 @@ class Min(Feature):
     def phi(arg1, arg2):
         return "min(" + arg1 + "," + arg2 + ")"
 
+    @staticmethod
+    def delta():
+        return "sequence[i-1]"
+
+    @staticmethod
+    def deltaprime():
+        return "sequence[i]"
+
 class Range(Feature):
 
     @staticmethod
@@ -129,3 +179,11 @@ class Range(Feature):
     @staticmethod
     def phi(arg1, arg2):
         raise NotImplementedError("Should never happened")
+
+    @staticmethod
+    def delta():
+        return "sequence[i-1]"
+
+    @staticmethod
+    def deltaprime():
+        return "sequence[i]"

@@ -11,8 +11,8 @@ def max_one_bump_on_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -154,8 +154,8 @@ def max_one_decreasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -197,8 +197,8 @@ def max_one_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = max(max(d,delta),deltaprime)
@@ -265,8 +265,8 @@ def max_one_decreasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -358,8 +358,8 @@ def max_one_dip_on_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -501,8 +501,8 @@ def max_one_gorge(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -627,8 +627,8 @@ def max_one_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -670,8 +670,8 @@ def max_one_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -738,8 +738,8 @@ def max_one_increasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -831,8 +831,8 @@ def max_one_inflexion(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -924,8 +924,8 @@ def max_one_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -1017,8 +1017,8 @@ def max_one_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -1110,8 +1110,8 @@ def max_one_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -1203,8 +1203,8 @@ def max_one_proper_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -1296,8 +1296,8 @@ def max_one_proper_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -1389,8 +1389,8 @@ def max_one_steady(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -1424,8 +1424,8 @@ def max_one_steady_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -1476,8 +1476,8 @@ def max_one_strictly_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = max(max(d,delta),deltaprime)
@@ -1544,8 +1544,8 @@ def max_one_strictly_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -1612,8 +1612,8 @@ def max_one_summit(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -1730,8 +1730,8 @@ def max_one_valley(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -1823,8 +1823,8 @@ def max_one_zigzag(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -2016,8 +2016,8 @@ def max_one_zigzag2(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -2359,8 +2359,8 @@ def max_width_bump_on_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -2502,8 +2502,8 @@ def max_width_decreasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -2545,8 +2545,8 @@ def max_width_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = d+delta+deltaprime
@@ -2613,8 +2613,8 @@ def max_width_decreasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -2706,8 +2706,8 @@ def max_width_dip_on_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -2849,8 +2849,8 @@ def max_width_gorge(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -2975,8 +2975,8 @@ def max_width_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -3018,8 +3018,8 @@ def max_width_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -3086,8 +3086,8 @@ def max_width_increasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -3179,8 +3179,8 @@ def max_width_inflexion(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -3272,8 +3272,8 @@ def max_width_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -3365,8 +3365,8 @@ def max_width_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -3458,8 +3458,8 @@ def max_width_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -3551,8 +3551,8 @@ def max_width_proper_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -3644,8 +3644,8 @@ def max_width_proper_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -3737,8 +3737,8 @@ def max_width_steady(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -3772,8 +3772,8 @@ def max_width_steady_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -3824,8 +3824,8 @@ def max_width_strictly_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = d+delta+deltaprime
@@ -3892,8 +3892,8 @@ def max_width_strictly_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -3960,8 +3960,8 @@ def max_width_summit(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -4078,8 +4078,8 @@ def max_width_valley(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -4171,8 +4171,8 @@ def max_width_zigzag(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -4364,8 +4364,8 @@ def max_width_zigzag2(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -14099,8 +14099,8 @@ def min_one_bump_on_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -14242,8 +14242,8 @@ def min_one_decreasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -14285,8 +14285,8 @@ def min_one_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = max(max(d,delta),deltaprime)
@@ -14353,8 +14353,8 @@ def min_one_decreasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -14446,8 +14446,8 @@ def min_one_dip_on_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -14589,8 +14589,8 @@ def min_one_gorge(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -14715,8 +14715,8 @@ def min_one_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -14758,8 +14758,8 @@ def min_one_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -14826,8 +14826,8 @@ def min_one_increasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -14919,8 +14919,8 @@ def min_one_inflexion(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -15012,8 +15012,8 @@ def min_one_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -15105,8 +15105,8 @@ def min_one_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -15198,8 +15198,8 @@ def min_one_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -15291,8 +15291,8 @@ def min_one_proper_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -15384,8 +15384,8 @@ def min_one_proper_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -15477,8 +15477,8 @@ def min_one_steady(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -15512,8 +15512,8 @@ def min_one_steady_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -15564,8 +15564,8 @@ def min_one_strictly_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = max(max(d,delta),deltaprime)
@@ -15632,8 +15632,8 @@ def min_one_strictly_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -15700,8 +15700,8 @@ def min_one_summit(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -15818,8 +15818,8 @@ def min_one_valley(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -15911,8 +15911,8 @@ def min_one_zigzag(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -16104,8 +16104,8 @@ def min_one_zigzag2(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -16447,8 +16447,8 @@ def min_width_bump_on_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -16590,8 +16590,8 @@ def min_width_decreasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -16633,8 +16633,8 @@ def min_width_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = d+delta+deltaprime
@@ -16701,8 +16701,8 @@ def min_width_decreasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -16794,8 +16794,8 @@ def min_width_dip_on_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -16937,8 +16937,8 @@ def min_width_gorge(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -17063,8 +17063,8 @@ def min_width_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -17106,8 +17106,8 @@ def min_width_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -17174,8 +17174,8 @@ def min_width_increasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -17267,8 +17267,8 @@ def min_width_inflexion(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -17360,8 +17360,8 @@ def min_width_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -17453,8 +17453,8 @@ def min_width_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -17546,8 +17546,8 @@ def min_width_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -17639,8 +17639,8 @@ def min_width_proper_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -17732,8 +17732,8 @@ def min_width_proper_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -17825,8 +17825,8 @@ def min_width_steady(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -17860,8 +17860,8 @@ def min_width_steady_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -17912,8 +17912,8 @@ def min_width_strictly_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = d+delta+deltaprime
@@ -17980,8 +17980,8 @@ def min_width_strictly_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -18048,8 +18048,8 @@ def min_width_summit(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -18166,8 +18166,8 @@ def min_width_valley(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -18259,8 +18259,8 @@ def min_width_zigzag(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -18452,8 +18452,8 @@ def min_width_zigzag2(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -28187,8 +28187,8 @@ def sum_one_bump_on_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -28330,8 +28330,8 @@ def sum_one_decreasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -28373,8 +28373,8 @@ def sum_one_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = max(max(d,delta),deltaprime)
@@ -28441,8 +28441,8 @@ def sum_one_decreasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -28534,8 +28534,8 @@ def sum_one_dip_on_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -28677,8 +28677,8 @@ def sum_one_gorge(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -28803,8 +28803,8 @@ def sum_one_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -28846,8 +28846,8 @@ def sum_one_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -28914,8 +28914,8 @@ def sum_one_increasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -29007,8 +29007,8 @@ def sum_one_inflexion(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -29100,8 +29100,8 @@ def sum_one_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -29193,8 +29193,8 @@ def sum_one_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -29286,8 +29286,8 @@ def sum_one_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -29379,8 +29379,8 @@ def sum_one_proper_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -29472,8 +29472,8 @@ def sum_one_proper_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -29565,8 +29565,8 @@ def sum_one_steady(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -29600,8 +29600,8 @@ def sum_one_steady_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -29652,8 +29652,8 @@ def sum_one_strictly_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = max(max(d,delta),deltaprime)
@@ -29720,8 +29720,8 @@ def sum_one_strictly_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -29788,8 +29788,8 @@ def sum_one_summit(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -29906,8 +29906,8 @@ def sum_one_valley(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -29999,8 +29999,8 @@ def sum_one_zigzag(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -30192,8 +30192,8 @@ def sum_one_zigzag2(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 0
+            deltaprime = 0
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -30535,8 +30535,8 @@ def sum_width_bump_on_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -30678,8 +30678,8 @@ def sum_width_decreasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -30721,8 +30721,8 @@ def sum_width_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = d+delta+deltaprime
@@ -30789,8 +30789,8 @@ def sum_width_decreasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -30882,8 +30882,8 @@ def sum_width_dip_on_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -31025,8 +31025,8 @@ def sum_width_gorge(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -31151,8 +31151,8 @@ def sum_width_increasing(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -31194,8 +31194,8 @@ def sum_width_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -31262,8 +31262,8 @@ def sum_width_increasing_terrace(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -31355,8 +31355,8 @@ def sum_width_inflexion(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -31448,8 +31448,8 @@ def sum_width_peak(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -31541,8 +31541,8 @@ def sum_width_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -31634,8 +31634,8 @@ def sum_width_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -31727,8 +31727,8 @@ def sum_width_proper_plain(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
@@ -31820,8 +31820,8 @@ def sum_width_proper_plateau(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -31913,8 +31913,8 @@ def sum_width_steady(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -31948,8 +31948,8 @@ def sum_width_steady_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -32000,8 +32000,8 @@ def sum_width_strictly_decreasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = d+delta+deltaprime
@@ -32068,8 +32068,8 @@ def sum_width_strictly_increasing_sequence(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -32136,8 +32136,8 @@ def sum_width_summit(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '=':
                     c_tmp = c
@@ -32254,8 +32254,8 @@ def sum_width_valley(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -32347,8 +32347,8 @@ def sum_width_zigzag(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '>':
                     c_tmp = c
@@ -32540,8 +32540,8 @@ def sum_width_zigzag2(sequence):
                 symbol = '<'
             else:
                 symbol = '='
-            delta = sequence[i-1]
-            deltaprime = sequence[i]
+            delta = 1
+            deltaprime = 1
             if 'current_state' not in locals() or  current_state == 's':
                 if symbol == '<':
                     c_tmp = c
